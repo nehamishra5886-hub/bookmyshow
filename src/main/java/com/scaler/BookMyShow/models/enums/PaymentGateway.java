@@ -4,6 +4,8 @@ public enum PaymentGateway {
     PAYPAL,
     STRIPE,
     RAZORPAY,
-    PAYTM
+    PAYTM,
+
+    PAYU
 
 }

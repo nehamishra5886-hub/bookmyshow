@@ -1,9 +1,10 @@
 package com.scaler.BookMyShow.models.enums;
 
 public enum Feature {
+    TWO_D,
     THREE_D,
-    DOLBY_SOUND,
+    DOLBY_ATMOS,
     IMAX,
-    RECLINER_SEATS
+    LASER
 
 }

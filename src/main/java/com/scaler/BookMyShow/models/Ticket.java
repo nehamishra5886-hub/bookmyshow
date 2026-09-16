@@ -1,6 +1,7 @@
 package com.scaler.BookMyShow.models;
 
-import com.scaler.BookMyShow.models.enums.ShowSeat;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,11 +16,12 @@ public class Ticket extends BaseEntity {
     private String ticketNumber;
 
 
-    private List<ShowSeat> showSeats;
+    @ManyToMany
+    //@JoinTable
+    private List<ShowSeat> bookedShowSeats;
 
     private User user;
 
-    private ShowSeat showSeat;
 
     private double price;
 
@@ -31,7 +33,7 @@ public class Ticket extends BaseEntity {
 
     private Date showTime;
 
-    //private Status status;
+    private Show show;
 
     private List<Payment> payments;
 

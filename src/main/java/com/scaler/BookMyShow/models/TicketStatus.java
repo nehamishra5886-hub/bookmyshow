@@ -1,4 +1,4 @@
-package com.scaler.BookMyShow.models.enums;
+package com.scaler.BookMyShow.models;
 
 public enum TicketStatus {
     BOOKED,

@@ -7,6 +7,7 @@ import org.hibernate.annotations.Temporal;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import jakarta.persistence.*;
+import org.springframework.data.annotation.LastModifiedDate;
 //import javax.persistence.Temporal;
 import java.util.Date;
 
@@ -24,6 +25,7 @@ public class BaseEntity {
     //@Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date createdAt;
 
-    @UpdateTimestamp
+    @LastModifiedDate
+    //@Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date updatedAt;
 }
