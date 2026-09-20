@@ -4,7 +4,6 @@ import com.scaler.BookMyShow.controller.UserController;
 import com.scaler.BookMyShow.controller.ViewShowsController;
 import com.scaler.BookMyShow.dto.*;
 import com.scaler.BookMyShow.models.Show;
-import com.scaler.BookMyShow.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

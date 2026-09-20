@@ -1,6 +1,5 @@
 package com.scaler.BookMyShow.models;
 
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import lombok.Getter;
 import lombok.Setter;

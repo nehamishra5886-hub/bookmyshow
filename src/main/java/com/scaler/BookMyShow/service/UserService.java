@@ -4,10 +4,10 @@ package com.scaler.BookMyShow.service;
 import com.scaler.BookMyShow.dto.SignUpRequestDto;
 import com.scaler.BookMyShow.models.User;
 import com.scaler.BookMyShow.repository.UserRepository;
-import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 

@@ -1,6 +1,9 @@
 package com.scaler.BookMyShow.service;
 
-import com.scaler.BookMyShow.models.*;
+import com.scaler.BookMyShow.models.Booking;
+import com.scaler.BookMyShow.models.Show;
+import com.scaler.BookMyShow.models.ShowSeat;
+import com.scaler.BookMyShow.models.User;
 import com.scaler.BookMyShow.models.enums.BookingStatus;
 import com.scaler.BookMyShow.models.enums.SeatStatus;
 import com.scaler.BookMyShow.repository.BookingRepository;
@@ -13,7 +16,10 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Duration;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 
 

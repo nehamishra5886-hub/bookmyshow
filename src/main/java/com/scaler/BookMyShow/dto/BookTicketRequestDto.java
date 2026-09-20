@@ -2,7 +2,6 @@ package com.scaler.BookMyShow.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.SecondaryRow;
 
 import java.util.List;
 

@@ -1,8 +1,5 @@
 package com.scaler.BookMyShow.models;
 
-import com.scaler.BookMyShow.models.BaseEntity;
-import com.scaler.BookMyShow.models.Seat;
-import com.scaler.BookMyShow.models.Show;
 import com.scaler.BookMyShow.models.enums.SeatStatus;
 import jakarta.persistence.*;
 import lombok.Getter;

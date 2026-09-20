@@ -1,7 +1,6 @@
 package com.scaler.BookMyShow.dto;
 
 
-import com.scaler.BookMyShow.models.Movie;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

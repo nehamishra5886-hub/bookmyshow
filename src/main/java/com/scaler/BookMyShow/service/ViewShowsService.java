@@ -1,16 +1,12 @@
 package com.scaler.BookMyShow.service;
 
 import com.scaler.BookMyShow.dto.ViewShowsRequestDto;
-import com.scaler.BookMyShow.dto.ViewShowsResponseDto;
 import com.scaler.BookMyShow.models.Movie;
 import com.scaler.BookMyShow.models.Show;
 import com.scaler.BookMyShow.repository.MovieRepository;
 import com.scaler.BookMyShow.repository.ShowRepository;
-import com.scaler.BookMyShow.repository.ViewShowsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class ViewShowsService {

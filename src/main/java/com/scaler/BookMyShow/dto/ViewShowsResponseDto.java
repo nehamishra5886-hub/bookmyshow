@@ -1,12 +1,9 @@
 package com.scaler.BookMyShow.dto;
 
 import com.scaler.BookMyShow.models.Show;
-import com.scaler.BookMyShow.models.Theatre;
 import com.scaler.BookMyShow.models.enums.ResponseStatus;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
 
 @Getter
 @Setter
