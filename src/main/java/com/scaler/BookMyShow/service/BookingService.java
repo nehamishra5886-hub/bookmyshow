@@ -79,7 +79,7 @@ public class BookingService {
         for (ShowSeat showSeat : bookedSeats) {
             boolean isAvailable = showSeat.getStatus().equals(SeatStatus.AVAILABLE);
             boolean isExpired = showSeat.getStatus().equals(SeatStatus.BLOCKED) &&
-                    Duration.between(new Date().toInstant(), showSeat.getBlockedAt().toInstant()).toMinutesPart() > 15;
+                    Duration.between(new Date().toInstant(), showSeat.getBlockedAt().toInstant()).toMinutesPart() > 1;
 
 
             if (!isAvailable && !isExpired) {
@@ -114,13 +114,18 @@ public class BookingService {
     @Transactional
     public  void expireBookings() {
         List<Booking> pendingBookings = bookingRepository.findByBookingStatus(BookingStatus.PENDING);
+        for(Booking booking : pendingBookings) {
+            logger.info("Blocked seats - "+booking.getBookedShowSeats());
+            System.out.println("Blocked seats - "+booking.getBookedShowSeats());
+        }
+
         for (Booking booking : pendingBookings) {
             Date bookingTime = booking.getCreatedAt();
             Date currentTime = new Date();
             long diffInMinutes = Duration.between(bookingTime.toInstant(), currentTime.toInstant()).toMinutes();
             logger.info("Booking ID: " + booking.getId() + ", Created At: " + bookingTime + ", Current Time: " + currentTime + ", Diff in Minutes: " + diffInMinutes);
 
-            if (diffInMinutes > 15) {
+            if (diffInMinutes > 1) {
                 // Expire the booking
                 booking.setBookingStatus(BookingStatus.EXPIRED);
                 logger.info("Booking ID: " + booking.getId() + " has expired. Updating status to EXPIRED.");

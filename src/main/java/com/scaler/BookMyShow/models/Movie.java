@@ -28,4 +28,19 @@ public class Movie extends  BaseEntity{
     @ElementCollection
     private List<ShowSeat> showSeats;
 
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "name='" + name + '\'' +
+                ", cast=" + cast +
+                ", director='" + director + '\'' +
+                ", features=" + features +
+                ", description='" + description + '\'' +
+                ", durationInMinutes=" + durationInMinutes +
+                ", language='" + language + '\'' +
+                ", genre='" + genre + '\'' +
+                ", showSeats=" + showSeats +
+                '}';
+    }
 }

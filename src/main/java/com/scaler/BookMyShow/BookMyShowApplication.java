@@ -78,16 +78,17 @@ public class BookMyShowApplication implements CommandLineRunner {
 		bookTicketRequestDto.setShowId(show.getId());
 		bookTicketRequestDto.setUserId(1);
 		bookTicketRequestDto.setSeatIds(new ArrayList<Integer>() {{
-			//add(1);
-			//add(2);
-			add(3);
-			add(4);
+			add(1);
+			add(2);
+			//add(3);
+			//add(4);
 		}});
 		BookTicketResponseDto bookTicketResponseDto= bookingController.bookTicket(bookTicketRequestDto);
 		logger.info("Booking Response Status: " + bookTicketResponseDto.getResponseStatus());
 		logger.info("Booking Message: " + bookTicketResponseDto.getMessage());
 		logger.info("Booking Ticket ID: " + bookTicketResponseDto.getTicketId());
 		logger.info("Booking Amount: " + bookTicketResponseDto.getAmount());
+		System.out.println("bookTicketResponseDto "+bookTicketResponseDto.getShow());
 
 
 	}

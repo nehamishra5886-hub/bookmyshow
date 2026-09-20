@@ -26,4 +26,13 @@ public class Show extends  BaseEntity{
     @JoinColumn(name = "screen_id")
     private Screen screen;
 
+    @Override
+    public String toString() {
+        return "Show{" +
+                "movie=" + movie +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", screen=" + screen +
+                '}';
+    }
 }

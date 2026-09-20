@@ -21,4 +21,14 @@ public class Seat extends BaseEntity {
     private SeatType seatType;
     //private SeatStatus seatStatus;
 
+
+    @Override
+    public String toString() {
+        return "Seat{" +
+                "seatNumber='" + seatNumber + '\'' +
+                ", rowVal=" + rowVal +
+                ", colVal=" + colVal +
+                ", seatType=" + seatType +
+                '}';
+    }
 }

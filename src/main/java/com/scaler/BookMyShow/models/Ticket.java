@@ -37,5 +37,19 @@ public class Ticket extends BaseEntity {
     private List<Payment> payments;
 
 
-
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "ticketNumber='" + ticketNumber + '\'' +
+                ", bookedShowSeats=" + bookedShowSeats +
+                ", user=" + user +
+                ", price=" + price +
+                ", bookingTime='" + bookingTime + '\'' +
+                ", movie=" + movie +
+                ", screen=" + screen +
+                ", showTime=" + showTime +
+                ", show=" + show +
+                ", payments=" + payments +
+                '}';
+    }
 }

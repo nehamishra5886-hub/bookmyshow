@@ -26,4 +26,13 @@ public class ShowSeat extends BaseEntity {
 
     private Date blockedAt; //when the seat was blocked for booking
 
+    @Override
+    public String toString() {
+        return "ShowSeat{" +
+                "show=" + show +
+                ", seat=" + seat +
+                ", status=" + status +
+                ", blockedAt=" + blockedAt +
+                '}';
+    }
 }

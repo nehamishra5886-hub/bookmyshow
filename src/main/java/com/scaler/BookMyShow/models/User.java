@@ -35,4 +35,21 @@ public class User extends BaseEntity {
     //private List<Ticket> tickets;
     @OneToMany(mappedBy = "user")
     private List<Booking> bookings;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", mobileNo='" + mobileNo + '\'' +
+                ", password='" + password + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", country='" + country + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", role='" + role + '\'' +
+                ", bookings=" + bookings +
+                '}';
+    }
 }

@@ -39,4 +39,17 @@ public class Booking extends BaseEntity{
     @OneToMany(mappedBy = "booking")
     private List<Payment> payments;
 
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "ticketNumber='" + ticketNumber + '\'' +
+                ", bookingStatus=" + bookingStatus +
+                ", amount=" + amount +
+                ", user=" + user +
+                ", bookedShowSeats=" + bookedShowSeats +
+                ", bookingTime='" + bookingTime + '\'' +
+                ", show=" + show +
+                ", payments=" + payments +
+                '}';
+    }
 }

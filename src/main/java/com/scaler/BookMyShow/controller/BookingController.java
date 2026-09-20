@@ -31,6 +31,8 @@ public class BookingController {
             response.setTicketId(booking.getTicketNumber()); // This should be replaced with the actual ticket ID from the booking
             response.setAmount(booking.getAmount()); // Assuming Booking has a method to get the total amount
             response.setResponseStatus(ResponseStatus.SUCCESS);
+            response.setShow(booking.getShow());
+            System.out.println("show boooked "+booking.getShow());
         } catch (Exception e) {
             response.setMessage("Failed to book ticket: " + e.getMessage());
             response.setResponseStatus(ResponseStatus.FAILURE);
