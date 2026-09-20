@@ -10,7 +10,10 @@ import com.scaler.BookMyShow.repository.BookingRepository;
 import com.scaler.BookMyShow.repository.ShowRepository;
 import com.scaler.BookMyShow.repository.ShowSeatRepository;
 import com.scaler.BookMyShow.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +28,8 @@ import java.util.UUID;
 
 @Service
 public class BookingService {
+
+    public static final Logger logger = LoggerFactory.getLogger(BookingService.class);
 
     private final UserRepository userRepository;
 
@@ -102,5 +107,35 @@ public class BookingService {
         Booking savedBooking = bookingRepository.save(booking);
         return savedBooking;
         //return bookingRepository.save(booking);
+    }
+
+
+    @Scheduled(fixedRate = 60000) // Run every 1 minute
+    @Transactional
+    public  void expireBookings() {
+        List<Booking> pendingBookings = bookingRepository.findByBookingStatus(BookingStatus.PENDING);
+        for (Booking booking : pendingBookings) {
+            Date bookingTime = booking.getCreatedAt();
+            Date currentTime = new Date();
+            long diffInMinutes = Duration.between(bookingTime.toInstant(), currentTime.toInstant()).toMinutes();
+            logger.info("Booking ID: " + booking.getId() + ", Created At: " + bookingTime + ", Current Time: " + currentTime + ", Diff in Minutes: " + diffInMinutes);
+
+            if (diffInMinutes > 15) {
+                // Expire the booking
+                booking.setBookingStatus(BookingStatus.EXPIRED);
+                logger.info("Booking ID: " + booking.getId() + " has expired. Updating status to EXPIRED.");
+                bookingRepository.save(booking);
+
+                // Release the seats associated with this booking
+                List<ShowSeat> bookedSeats = booking.getBookedShowSeats();
+                for (ShowSeat showSeat : bookedSeats) {
+                    logger.info("Releasing seat ID: " + showSeat.getId() + " associated with expired booking ID: " + booking.getId());
+                    showSeat.setStatus(SeatStatus.AVAILABLE);
+                    showSeat.setBlockedAt(null);
+                    showSeatRepository.save(showSeat);
+                }
+            }
+        }
+
     }
 }
