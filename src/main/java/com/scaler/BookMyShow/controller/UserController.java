@@ -1,6 +1,8 @@
 package com.scaler.BookMyShow.controller;
 
 
+import com.scaler.BookMyShow.dto.LoginRequestDto;
+import com.scaler.BookMyShow.dto.LoginResponseDto;
 import com.scaler.BookMyShow.dto.SignUpRequestDto;
 import com.scaler.BookMyShow.dto.SignUpResponseDto;
 import com.scaler.BookMyShow.models.User;
@@ -30,6 +32,19 @@ public class UserController {
             response.setResponseStatus(ResponseStatus.FAILURE);
         }
 
+        return response;
+    }
+
+    public LoginResponseDto login(LoginRequestDto request) {
+        LoginResponseDto response = new LoginResponseDto();
+        try {
+            String loginMessage = userService.login(request.getEmail(), request.getPassword());
+            response.setMessage(loginMessage);
+            response.setResponseStatus(ResponseStatus.SUCCESS);
+        } catch (Exception e) {
+            response.setMessage("Login failed: " + e.getMessage());
+            response.setResponseStatus(ResponseStatus.FAILURE);
+        }
         return response;
     }
 }

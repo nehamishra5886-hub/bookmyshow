@@ -42,8 +42,10 @@ public class UserService {
 
     public String login(String email, String password) {
         User user = userRepository.findByEmail(email).orElseThrow();
+        String message = null;
         if(passwordEncoder.matches(password,user.getPassword())) {
-            return "Login successful";
+            message = "Login successful for user: " + user.getName();
+            return message;
         }
         return "Login failed";
     }
