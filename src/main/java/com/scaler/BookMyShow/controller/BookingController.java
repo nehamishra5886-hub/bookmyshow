@@ -4,19 +4,19 @@ import com.scaler.BookMyShow.dto.BookTicketRequestDto;
 import com.scaler.BookMyShow.dto.BookTicketResponseDto;
 import com.scaler.BookMyShow.models.Booking;
 import com.scaler.BookMyShow.models.enums.ResponseStatus;
-import com.scaler.BookMyShow.service.TicketService;
+import com.scaler.BookMyShow.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 
 @Controller
-public class TicketController {
+public class BookingController {
 
-    private TicketService ticketService;
+    private BookingService bookingService;
 
     @Autowired
-    public TicketController(TicketService ticketService) {
-        this.ticketService = ticketService;
+    public BookingController(BookingService bookingService) {
+        this.bookingService = bookingService;
     }
 
     public BookTicketResponseDto bookTicket(BookTicketRequestDto request) {
@@ -24,7 +24,7 @@ public class TicketController {
 
         try {
             // Call the service layer to book the ticket
-            Booking booking = ticketService.bookTicket(request.getUserId(),
+            Booking booking = bookingService.bookTicket(request.getUserId(),
                     request.getShowId(), request.getSeatIds());
 
             response.setMessage("Ticket booked successfully");

@@ -9,6 +9,7 @@ import lombok.Setter;
 @Entity
 public class SeatType extends BaseEntity {
 
+
     private String name;
 
     //private double priceMultiplier;
