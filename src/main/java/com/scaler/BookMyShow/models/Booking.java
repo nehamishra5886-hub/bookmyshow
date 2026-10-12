@@ -30,9 +30,6 @@ public class Booking extends BaseEntity{
 
     private String bookingTime;
 
-    //private Movie movie;
-    //private Screen screen;
-    //private Date showTime;
     @ManyToOne
     @JoinColumn(name = "show_id")
     private Show show;
